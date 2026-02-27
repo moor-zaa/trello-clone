@@ -35,7 +35,6 @@ const List: FC<ListProps> = ({ list }) => {
     transition,
   };
 
-  // Close modal when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -58,7 +57,6 @@ const List: FC<ListProps> = ({ list }) => {
   }, [isModalOpen]);
 
   const handleDeleteList = () => {
-    // Add your delete list logic here
     dispatch({
       type: BoardActionType.DELETE_LIST,
       payload: { listId: list.id },
