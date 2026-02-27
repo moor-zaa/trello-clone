@@ -1,7 +1,7 @@
 "use client"
 
 import { Board } from "@/types/board.types";
-import { useLocalStorage } from "./useLocalStorage";
+import { useLocalStorage } from "../useLocalStorage";
 import { defaultBoard } from "@/services/board.service";
 import { v4 as uuid } from "uuid";
 

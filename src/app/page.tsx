@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./page.module.css";
-import { useBoard } from "@/hooks/useBoard";
+import { useBoard } from "@/hooks/useBoard/useBoard";
 import { Card, List } from "@/types/board.types";
 
 export default function Home() {
