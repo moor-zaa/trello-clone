@@ -11,7 +11,7 @@ export enum BoardActionType {
   //   ===CARD===
   ADD_CARD = "ADD_CARD",
   DELETE_CARD = "DELETE_CARD",
-  UPDATE_CARD_TITLE = "DELETE_CARD",
+  UPDATE_CARD_TITLE = "UPDATE_CARD_TITLE",
   MOVE_CARD = "MOVE_CARD",
 
   //   ===COMMENT===
