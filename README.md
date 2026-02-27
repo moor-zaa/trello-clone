@@ -31,6 +31,9 @@ This project demonstrates clean architecture, modular SCSS styling, and producti
 ---
 
 ## 📂 Project Structure
+
+```
+
 ├───app
 │       favicon.ico
 │       globals.css
@@ -95,8 +98,7 @@ This project demonstrates clean architecture, modular SCSS styling, and producti
 │
 └───utils
 
-
----
+```
 
 ## 🪄 Example Action
 
