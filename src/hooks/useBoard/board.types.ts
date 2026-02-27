@@ -1,3 +1,4 @@
+import { Board } from "@/types/board.types";
 import { BoardActionType } from "./board.actions";
 
 export type BoardAction =
@@ -57,3 +58,5 @@ export type BoardAction =
         text: string;
       };
     };
+
+export type BoardState = Board;
