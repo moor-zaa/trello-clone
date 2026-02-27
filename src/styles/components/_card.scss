@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .card {
   background: $card-bg;
@@ -6,4 +7,10 @@
   padding: $spacing;
   margin-bottom: $spacing;
   cursor: pointer;
+  font-size: $font-md;
+  @include transition(background-color, 0.3s);
+
+  &:hover {
+    background: $card-hover-bg;
+  }
 }

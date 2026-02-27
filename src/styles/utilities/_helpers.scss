@@ -1,0 +1,6 @@
+@use "../abstracts/variables" as *;
+
+.close-button {
+  background: transparent;
+  margin: $spacing;
+}

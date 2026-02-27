@@ -4,17 +4,25 @@ $color-list-bg: #ebecf0;
 $radius: 4px;
 $spacing: 8px;
 $color-foreground: white;
+$main-text-color: #000;
+
+// ===Fonts===
 $font-xs: 0.75rem;
+$font-md: 0.9rem;
+$font-lg: 1.1rem;
+$font-xl: 1.5rem;
 
 // ===Board===
 
 // ===List===
 $list-bg: rgb(223, 225, 230);
-$list-color: black;
+$list-color: $main-text-color;
+$list-width: 280px;
 
 // ===Card===
-$card-bg: #ebecf0;
+$card-bg: #fff;
+$card-hover-bg: #f2f2f2;
 
 // ===Comment===
-$comment-bg: rgb(223, 225, 230);
+$comment-bg: #dfe1e6;
 $comment-color: rgb(23, 43, 77);

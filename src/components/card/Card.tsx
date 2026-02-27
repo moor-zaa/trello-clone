@@ -4,6 +4,9 @@ import type { Card } from "@/types/board.types";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { FC } from "react";
+import EditableText from "../ui/EditableText";
+import { BoardActionType } from "@/hooks/useBoard/board.actions";
+import { useBoard } from "@/hooks/useBoard/useBoard";
 
 interface CardProps {
   card: Card;
@@ -11,6 +14,8 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ card, listId }) => {
+  const { dispatch } = useBoard();
+
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({
       id: card.id,
@@ -30,7 +35,19 @@ const Card: FC<CardProps> = ({ card, listId }) => {
       {...attributes}
       {...listeners}
     >
-      {card.title}
+      <EditableText
+        value={card.title}
+        onChange={(title) =>
+          dispatch({
+            type: BoardActionType.UPDATE_CARD_TITLE,
+            payload: {
+              cardId: card.id,
+              listId: listId,
+              title,
+            },
+          })
+        }
+      />
       <div className="comment">Comments ({card.comments.length})</div>
     </div>
   );

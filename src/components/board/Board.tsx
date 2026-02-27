@@ -18,7 +18,8 @@ import {
 import { useBoard } from "@/hooks/useBoard/useBoard";
 import { BoardActionType } from "@/hooks/useBoard/board.actions";
 import List from "../list/List";
-import { useState } from "react";
+import EditableText from "../ui/EditableText";
+import AddList from "../list/AddList";
 
 const Board = () => {
   const { board, dispatch } = useBoard();
@@ -37,7 +38,6 @@ const Board = () => {
     const activeContainer = active.data.current?.listId;
     const overContainer = over.data.current?.listId || over.id;
 
-    // Cross-list movement logic
     if (
       active.data.current?.type === "card" &&
       activeContainer !== overContainer
@@ -94,23 +94,38 @@ const Board = () => {
   };
 
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCorners}
-      onDragOver={handleDragOver}
-      onDragEnd={handleDragEnd}
-    >
-      <SortableContext
-        items={board.lists.map((l) => l.id)}
-        strategy={horizontalListSortingStrategy}
+    <div>
+      <h2>
+        <EditableText
+          value={board.title}
+          onChange={(title) =>
+            dispatch({
+              type: BoardActionType.UPDATE_BOARD_TITLE,
+              payload: title,
+            })
+          }
+          className="board-title"
+        />
+      </h2>
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCorners}
+        onDragOver={handleDragOver}
+        onDragEnd={handleDragEnd}
       >
-        <div className="lists" style={{ display: "flex", gap: "1rem" }}>
-          {board.lists.map((list) => (
-            <List key={list.id} list={list} />
-          ))}
-        </div>
-      </SortableContext>
-    </DndContext>
+        <SortableContext
+          items={board.lists.map((l) => l.id)}
+          strategy={horizontalListSortingStrategy}
+        >
+          <div className="lists" style={{ display: "flex", gap: "1rem" }}>
+            {board.lists.map((list) => (
+              <List key={list.id} list={list} />
+            ))}
+            <AddList />
+          </div>
+        </SortableContext>
+      </DndContext>
+    </div>
   );
 };
 

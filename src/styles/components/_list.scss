@@ -1,12 +1,40 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .list {
   background: $list-bg;
   border-radius: $radius;
-  width: 280px;
+  width: $list-width;
   padding: $spacing;
   display: flex;
   flex-direction: column;
   color: $list-color;
-  min-height: 264px;
+}
+
+.list-header {
+  font-size: $font-lg;
+  padding: $spacing;
+}
+
+.add-list_button {
+  color: $color-foreground;
+  background: rgba(0, 0, 0, 0.4);
+  padding: $spacing 8 * $spacing;
+  border-radius: $radius;
+  cursor: pointer;
+  @include transition(all, 0.3s);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.add-container {
+  background: $list-bg;
+  border-radius: $radius;
+  padding: $spacing;
+  display: flex;
+  flex-direction: column;
+  width: $list-width;
+  @include card-shadow;
 }

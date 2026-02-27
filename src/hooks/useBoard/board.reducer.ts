@@ -6,6 +6,8 @@ export function boardReducer(
   state: BoardState,
   action: BoardAction,
 ): BoardState {
+  console.log(state, action);
+
   switch (action.type) {
     // ===Board===
     case BoardActionType.UPDATE_BOARD_TITLE:
