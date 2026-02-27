@@ -3,10 +3,11 @@
 import type { Card } from "@/types/board.types";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { FC } from "react";
+import { FC, useState } from "react";
 import EditableText from "../ui/EditableText";
 import { BoardActionType } from "@/hooks/useBoard/board.actions";
 import { useBoard } from "@/hooks/useBoard/useBoard";
+import CommentModal from "../modal/CommentModal";
 
 interface CardProps {
   card: Card;
@@ -15,6 +16,7 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ card, listId }) => {
   const { dispatch } = useBoard();
+  const [open, setOpen] = useState(false);
 
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({
@@ -48,7 +50,17 @@ const Card: FC<CardProps> = ({ card, listId }) => {
           })
         }
       />
-      <div className="comment">Comments ({card.comments.length})</div>
+
+      <button className="comment ml-auto" onClick={() => setOpen(true)}>
+        Comments ({card.comments.length})
+      </button>
+      {open && (
+        <CommentModal
+          card={card}
+          listId={listId}
+          onClose={() => setOpen(false)}
+        />
+      )}
     </div>
   );
 };

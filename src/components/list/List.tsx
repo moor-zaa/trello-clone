@@ -12,6 +12,7 @@ import { FC } from "react";
 import { useBoard } from "@/hooks/useBoard/useBoard";
 import EditableText from "../ui/EditableText";
 import { BoardActionType } from "@/hooks/useBoard/board.actions";
+import AddCard from "../card/AddCard";
 
 interface ListProps {
   list: List;
@@ -61,8 +62,8 @@ const List: FC<ListProps> = ({ list }) => {
         {list.cards.map((card) => (
           <Card key={card.id} card={card} listId={list.id} />
         ))}
-      </SortableContext>
-      <button>+ Add another card</button>
+      </SortableContext>  
+      <AddCard listId={list.id} />
     </div>
   );
 };

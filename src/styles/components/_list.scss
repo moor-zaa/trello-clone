@@ -4,7 +4,7 @@
 .list {
   background: $list-bg;
   border-radius: $radius;
-  width: $list-width;
+  min-width: $list-width;
   padding: $spacing;
   display: flex;
   flex-direction: column;
@@ -21,20 +21,11 @@
   background: rgba(0, 0, 0, 0.4);
   padding: $spacing 8 * $spacing;
   border-radius: $radius;
-  cursor: pointer;
+  min-width: $list-width;
+  @include cursor-pointer;
   @include transition(all, 0.3s);
 
   &:hover {
     background: rgba(0, 0, 0, 0.8);
   }
-}
-
-.add-container {
-  background: $list-bg;
-  border-radius: $radius;
-  padding: $spacing;
-  display: flex;
-  flex-direction: column;
-  width: $list-width;
-  @include card-shadow;
 }

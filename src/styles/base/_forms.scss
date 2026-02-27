@@ -21,15 +21,12 @@ button {
   padding: 8px 12px;
   border-radius: $radius;
   border: none;
-  cursor: pointer;
+  @include cursor-pointer;
   font-weight: 500;
   width: fit-content;
   @include transition(background-color, 0.2s);
   margin: $spacing 0;
 
-  &:hover {
-    background: darken(rgba(0, 0, 0, 0.2), 8%);
-  }
 
   &:disabled {
     opacity: 0.6;

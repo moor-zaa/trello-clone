@@ -6,11 +6,26 @@
   border-radius: $radius;
   padding: $spacing;
   margin-bottom: $spacing;
-  cursor: pointer;
+  @include cursor-pointer;
   font-size: $font-md;
   @include transition(background-color, 0.3s);
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     background: $card-hover-bg;
+  }
+}
+
+.add-card_button {
+  color: $main-text-color;
+  padding: $spacing;
+  font-size: $font-md;
+  opacity: 0.5;
+  @include transition(background-color, 0.3s);
+  @include cursor-pointer;
+
+  &:hover {
+    background: darken($color: #bebebe, $amount: 0.02);
   }
 }

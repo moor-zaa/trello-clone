@@ -1,12 +1,13 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .comment {
-    background: $comment-bg;
-    width: fit-content;
-    padding: $spacing;
-    font-size: $font-xs;
-    border-radius: $radius;
-    margin-left: auto;
-    cursor: pointer;
-    color: $comment-color;
+  background: $comment-bg;
+  width: fit-content;
+  padding: $spacing;
+  font-size: $font-xs;
+  border-radius: $radius;
+  margin-left: auto;
+  @include cursor-pointer;
+  color: $comment-color;
 }

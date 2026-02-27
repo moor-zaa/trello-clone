@@ -1,6 +1,35 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .close-button {
   background: transparent;
   margin: $spacing;
+}
+
+.add-container {
+  background: $list-bg;
+  border-radius: $radius;
+  padding: $spacing;
+  display: flex;
+  flex-direction: column;
+  width: $list-width;
+  @include card-shadow;
+}
+
+.success-button {
+  color: $color-foreground;
+  background-color: $success-color;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
 }

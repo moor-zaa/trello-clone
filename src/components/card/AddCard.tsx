@@ -2,9 +2,13 @@
 
 import { BoardActionType } from "@/hooks/useBoard/board.actions";
 import { useBoard } from "@/hooks/useBoard/useBoard";
-import { useState } from "react";
+import { FC, useState } from "react";
 
-const AddList = () => {
+interface AddCardProps {
+  listId: string;
+}
+
+const AddCard: FC<AddCardProps> = ({ listId }) => {
   const { dispatch } = useBoard();
   const [activeInput, setActiveInput] = useState(false);
   const [title, setTitle] = useState("");
@@ -13,8 +17,11 @@ const AddList = () => {
     if (!title.trim()) return;
 
     dispatch({
-      type: BoardActionType.ADD_LIST,
-      payload: { title },
+      type: BoardActionType.ADD_CARD,
+      payload: {
+        title,
+        listId,
+      },
     });
 
     setTitle("");
@@ -23,15 +30,15 @@ const AddList = () => {
 
   if (activeInput) {
     return (
-      <div className="add-container">
+      <div className="">
         <input
-          placeholder="Enter a list title ..."
+          placeholder="Enter a Card title ..."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <div className="">
-          <button onClick={handleAdd} className="success-button">
-            + Add list
+          <button className="success-button" onClick={handleAdd}>
+            + Add card
           </button>
           <button
             onClick={() => setActiveInput(false)}
@@ -45,10 +52,10 @@ const AddList = () => {
   }
 
   return (
-    <div className="add-list_button" onClick={() => setActiveInput(true)}>
-      + Add another list
+    <div className="add-card_button" onClick={() => setActiveInput(true)}>
+      + Add another card
     </div>
   );
 };
 
-export default AddList;
+export default AddCard;
