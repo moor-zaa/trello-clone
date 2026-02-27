@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as *;
+
+.list {
+  background: $list-bg;
+  border-radius: $radius;
+  width: 280px;
+  padding: $spacing;
+  display: flex;
+  flex-direction: column;
+  color: $list-color;
+  min-height: 264px;
+}

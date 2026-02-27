@@ -13,7 +13,17 @@ export const defaultBoard: Board = {
           title: "Build Trello Clone",
           comments: [],
         },
+        {
+          id: "card-2",
+          title: "Setup Next js",
+          comments: [],
+        },
       ],
+    },
+    {
+      id: "list-2",
+      title: "In Progress",
+      cards: [],
     },
   ],
 };

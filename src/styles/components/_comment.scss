@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as *;
+
+.comment {
+    background: $comment-bg;
+    width: fit-content;
+    padding: $spacing;
+    font-size: $font-xs;
+    border-radius: $radius;
+    margin-left: auto;
+    cursor: pointer;
+    color: $comment-color;
+}

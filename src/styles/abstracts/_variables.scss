@@ -1,5 +1,20 @@
 $color-bg: #f4f5f7;
 $color-primary: rgb(37, 111, 156);
 $color-list-bg: #ebecf0;
-$radius: 8px;
+$radius: 4px;
 $spacing: 8px;
+$color-foreground: white;
+$font-xs: 0.75rem;
+
+// ===Board===
+
+// ===List===
+$list-bg: rgb(223, 225, 230);
+$list-color: black;
+
+// ===Card===
+$card-bg: #ebecf0;
+
+// ===Comment===
+$comment-bg: rgb(223, 225, 230);
+$comment-color: rgb(23, 43, 77);
