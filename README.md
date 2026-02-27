@@ -55,20 +55,6 @@ src/
 
 ---
 
-## 🧠 State Management Architecture
-
-The application uses a **useReducer-based architecture** for predictable state updates.
-
-### Why useReducer?
-
-- Centralized state logic
-- Immutable updates
-- Easier debugging
-- Scalable for medium-sized apps
-- Cleaner separation of concerns
-
----
-
 ## 🪄 Example Action
 
 ```ts
