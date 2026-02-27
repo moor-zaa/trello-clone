@@ -71,16 +71,14 @@ export function boardReducer(
         ),
       };
 
-    case BoardActionType.DELETE_CARD:
+    case BoardActionType.DELETE_ALL_CARDS:
       return {
         ...state,
         lists: state.lists.map((list) =>
           list.id === action.payload.listId
             ? {
                 ...list,
-                cards: list.cards.filter(
-                  (card) => card.id !== action.payload.cardId,
-                ),
+                cards: [],
               }
             : list,
         ),

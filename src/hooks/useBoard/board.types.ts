@@ -27,10 +27,9 @@ export type BoardAction =
       };
     }
   | {
-      type: BoardActionType.DELETE_CARD;
+      type: BoardActionType.DELETE_ALL_CARDS;
       payload: {
         listId: string;
-        cardId: string;
       };
     }
   | {

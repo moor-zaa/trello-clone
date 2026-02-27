@@ -36,10 +36,7 @@ const EditableText: FC<EditableTextProps> = ({
   }
 
   return (
-    <div
-      className={className}
-      onClick={() => setEditing(true)}
-    >
+    <div className={className} onClick={() => setEditing(true)}>
       {inputValue}
     </div>
   );

@@ -10,7 +10,7 @@ export enum BoardActionType {
 
   //   ===CARD===
   ADD_CARD = "ADD_CARD",
-  DELETE_CARD = "DELETE_CARD",
+  DELETE_ALL_CARDS = "DELETE_ALL_CARDS",
   UPDATE_CARD_TITLE = "UPDATE_CARD_TITLE",
   MOVE_CARD = "MOVE_CARD",
 

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "../styles/main.scss";
 import { BoardProvider } from "@/context/BoardContext";
+import 'material-symbols';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,6 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <BoardProvider>{children}</BoardProvider>
       </body>
-    </html>
+    </html> 
   );
 }
