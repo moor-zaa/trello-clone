@@ -1,50 +1,25 @@
-"use client"
+"use client";
 
-import { Board } from "@/types/board.types";
-import { useLocalStorage } from "../useLocalStorage";
 import { defaultBoard } from "@/services/board.service";
-import { v4 as uuid } from "uuid";
+import { BoardState } from "./board.types";
+import { useEffect, useReducer } from "react";
+import { boardReducer } from "./board.reducer";
 
 export const useBoard = () => {
-  const [board, setBoard] = useLocalStorage<Board>("board", defaultBoard);
-
-  //   ===Board===
-  const updateBoardTitle = (title: string) => {
-    setBoard({ ...board, title });
+  const initializer = (): BoardState => {
+    if (typeof window === "undefined") return defaultBoard;
+    const stored = localStorage.getItem("board");
+    return stored ? JSON.parse(stored) : defaultBoard;
   };
 
-  //   ===List===
-  const addList = (title: string) => {
-    const newList = {
-      id: uuid(),
-      title,
-      cards: [],
-    };
+  const [state, dispatch] = useReducer(boardReducer, defaultBoard, initializer);
 
-    setBoard({ ...board, lists: [...board.lists, newList] });
-  };
-
-  const deleteList = (listId: string) => {
-    setBoard({
-      ...board,
-      lists: board.lists.filter((list) => list.id === listId),
-    });
-  };
-
-  const updateListTitle = (listId: string, newTitle: string) => {
-    setBoard({
-      ...board,
-      lists: board.lists.map((list) =>
-        list.id === listId ? { ...list, title: newTitle } : list,
-      ),
-    });
-  };
+  useEffect(() => {
+    localStorage.setItem("board", JSON.stringify(state));
+  }, [state]);
 
   return {
-    board,
-    updateBoardTitle,
-    addList,
-    deleteList,
-    updateListTitle,
+    board: state,
+    dispatch,
   };
 };
