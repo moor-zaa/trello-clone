@@ -31,26 +31,69 @@ This project demonstrates clean architecture, modular SCSS styling, and producti
 ---
 
 ## 📂 Project Structure
-src/
-├── app/
-├── components/
-│ ├── board/
-│ ├── list/
-│ ├── card/
-│ ├── commentModal/
-│ └── ui/
-├── hooks/
-│ └── useBoard/
-│ ├── board.reducer.ts
-│ ├── board.actions.ts
-│ └── useBoard.ts
-├── styles/
-│ ├── abstracts/
-│ ├── base/
-│ ├── utilities/
-│ └── main.scss
-├── types/
-│ └── board.types.ts
+├───app
+│       favicon.ico
+│       globals.css
+│       layout.tsx
+│       page.tsx
+│       
+├───components
+│   ├───board
+│   │       Board.tsx
+│   │
+│   ├───card
+│   │       AddCard.tsx
+│   │       Card.tsx
+│   │
+│   ├───list
+│   │       AddList.tsx
+│   │       List.tsx
+│   │
+│   ├───modal
+│   │       CommentModal.tsx
+│   │
+│   └───ui
+│           EditableText.tsx
+│
+├───context
+│       BoardContext.tsx
+│
+├───hooks
+│   │   useLocalStorage.ts
+│   │
+│   └───useBoard
+│           board.actions.ts
+│           board.reducer.ts
+│           board.types.ts
+│           useBoard.ts
+│
+├───services
+│       board.service.ts
+│
+├───styles
+│   │   main.scss
+│   │
+│   ├───abstracts
+│   │       _mixins.scss
+│   │       _variables.scss
+│   │
+│   ├───base
+│   │       _forms.scss
+│   │
+│   ├───components
+│   │       _board.scss
+│   │       _card.scss
+│   │       _comment.scss
+│   │       _list.scss
+│   │       _modal.scss
+│   │
+│   └───utilities
+│           _helpers.scss
+│
+├───types
+│       board.types.ts
+│
+└───utils
 
 
 ---
